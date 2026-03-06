@@ -8,8 +8,10 @@ function App() {
     <>
       <NavbarTop />
       <NavbarMain />
-      <HeroCards />
-      <InfoCards />
+      <div className="cards-wrapper">
+        <HeroCards />
+        <InfoCards />
+      </div>
     </>
   );
 }

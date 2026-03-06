@@ -9,7 +9,7 @@ body {
   padding-top: 40px;
 }
 
-/* NAVBAR 1 */
+/* NAVBAR TOP */
 .prima-navbar {
   background-color: #5f8f7a;
   width: 100%;
@@ -68,7 +68,7 @@ body {
   max-width: 100%;
 }
 
-/* seconda navbar */
+/* NAVBAR MAIN */
 .seconda-navbar {
   display: flex;
   align-items: center;
@@ -141,13 +141,13 @@ body {
   margin-left: 20px;
 }
 
-/* Main */
+/* HERO CARDS */
 .container-card {
   display: flex;
   gap: clamp(20px, 4vw, 40px);
+  margin-top: 40px;
   justify-content: center;
   flex-wrap: nowrap;
-  padding: 30px clamp(20px, 5vw, 80px);
 }
 
 .card {
@@ -242,38 +242,35 @@ body {
   }
 }
 
-/* ---------------------- */
-/* CONTENITORE CARDS CON SCROLL ORIZZONTALE */
+.cards-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 80px);
+}
+
+/*INFO CARDS*/
 .tre-card {
   display: flex;
-  gap: 24px; /* distanza tra le card */
-  padding: 30px clamp(20px, 5vw, 80px); /* stesso padding laterale delle card sopra */
-  overflow-x: auto; /* scroll laterale */
-  scroll-behavior: smooth; /* scorrimento fluido */
-  -webkit-overflow-scrolling: touch; /* mobile smooth */
+  justify-content: center;
+  gap: 24px;
+  padding: 30px clamp(10px, 5vw, 150px);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Nascondere scrollbar (opzionale) */
-.tre-card::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
-}
-.tre-card {
-  -ms-overflow-style: none; /* IE 10+ */
-  scrollbar-width: none; /* Firefox */
-}
-
-/* CARD */
 .tre-card > div {
-  flex: 0 0 320px; /* larghezza fissa, non si ridimensiona */
-  max-width: 320px;
-  min-height: 160px; /* minima */
+  flex: 1 1 0;
+  max-width: 360px; /* non diventano troppo larghe */
+  min-width: 240px; /* non diventano troppo strette */
+  aspect-ratio: 5 / 4; /* larghe leggermente più dell'altezza */
   background: white;
   border-radius: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 16px clamp(20px, 5vw, 24px); /* padding interno con lato sinistro e destro coerente */
+  padding: 16px clamp(20px, 5vw, 24px);
   gap: 8px;
   overflow: hidden;
   word-wrap: break-word;
@@ -281,8 +278,11 @@ body {
   box-sizing: border-box;
 }
 
-/* ---------------------- */
-/* ICONE */
+/* Nascondere scrollbar (opzionale) */
+.tre-card::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
 .icona-affido,
 .icona-stallo,
 .icona-aiutaci {
@@ -290,8 +290,6 @@ body {
   height: 60px;
 }
 
-/* ---------------------- */
-/* CONTENUTO CARD */
 .card-contenuto1,
 .card-contenuto2,
 .card-contenuto3 {
@@ -302,8 +300,6 @@ body {
   width: 100%;
 }
 
-/* ---------------------- */
-/* TITOLI CARD */
 .affido-titolo,
 .stallo-titolo,
 .aiutaci-titolo {
@@ -315,8 +311,6 @@ body {
   color: #2e2e2e;
 }
 
-/* ---------------------- */
-/* TESTI CARD */
 .affido-testo,
 .stallo-testo,
 .aiutaci-testo {
@@ -334,8 +328,6 @@ body {
   font-weight: 700;
 }
 
-/* ---------------------- */
-/* BOTTONI CARD */
 .affido-bottone {
   background-color: #d97a7a;
 }
@@ -371,53 +363,12 @@ body {
   background-color: #4e7aa3;
 }
 
-/* ---------------------- */
-/* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 1000px) {
   .tre-card {
+    justify-content: flex-start; /* partono da sinistra */
+    overflow-x: auto; /* attiva scroll */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
     gap: 16px;
-  }
-}
-
-@media (max-width: 700px) {
-  .tre-card > div {
-    flex: 0 0 280px; /* larghezza leggermente più piccola */
-    max-width: 280px;
-    min-height: 160px;
-    padding: 16px clamp(16px, 4vw, 20px); /* padding laterale coerente in mobile */
-  }
-
-  .icona-affido,
-  .icona-stallo,
-  .icona-aiutaci {
-    width: 50px;
-    height: 50px;
-  }
-
-  .affido-titolo,
-  .stallo-titolo,
-  .aiutaci-titolo {
-    font-size: 14px;
-  }
-
-  .affido-testo,
-  .stallo-testo,
-  .aiutaci-testo {
-    font-size: 11px;
-  }
-
-  .affido-bottone,
-  .stallo-bottone,
-  .aiutaci-bottone {
-    font-size: 11px;
-    padding: 4px 10px;
-  }
-}
-
-@media (max-width: 500px) {
-  .tre-card > div {
-    flex: 0 0 90%; /* quasi tutta la larghezza dello schermo */
-    max-width: 90%;
-    min-height: 160px;
   }
 }
