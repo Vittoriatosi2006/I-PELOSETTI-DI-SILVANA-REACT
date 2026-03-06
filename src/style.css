@@ -219,68 +219,133 @@ body {
     max-width: calc(100% - 120px);
   }
 }
-
-@media (max-width: 600px) {
-  .container-card {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    flex: 1 1 100%;
-    max-width: 80%;
-  }
-  .card-text h3 {
-    padding-right: 50px;
-  }
-  .card-text h2 {
-    font-size: clamp(14px, 3vw, 22px);
-  }
-
-  .card-text h3 {
-    font-size: clamp(10px, 2.5vw, 16px);
-  }
-}
-
+/* Containers wrapper */
 .cards-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 5vw, 80px);
+  padding: 0 clamp(20px, 5vw, 80px); /* stesso padding laterale per tutti i container */
 }
 
-/*INFO CARDS*/
+/* HERO CARDS */
+.container-card {
+  display: flex;
+  gap: clamp(20px, 4vw, 40px);
+  margin-top: 40px;
+  justify-content: center;
+  flex-wrap: nowrap; /* non andare a capo */
+  overflow-x: auto; /* scroll quando serve */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card {
+  position: relative;
+  flex: 0 0 45%; /* larghezza fissa proporzionale */
+  max-width: 600px;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.card-text {
+  position: absolute;
+  top: clamp(10px, 2vw, 20px);
+  left: clamp(10px, 2vw, 20px);
+  right: clamp(10px, 2vw, 20px);
+  color: #2e2e2e;
+  max-width: 70%;
+}
+
+.card-text h2 {
+  font-size: clamp(13px, 2vw, 27px);
+  line-height: 1.2;
+  margin-bottom: clamp(6px, 1vw, 12px);
+}
+
+.card-text h3 {
+  font-size: clamp(10px, 1.5vw, 17px);
+  line-height: 1.4;
+}
+
+.adotta,
+.dona-ora {
+  margin-top: clamp(8px, 1.5vw, 20px);
+  padding: clamp(4px, 1vw, 10px) clamp(10px, 2vw, 20px);
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.adotta {
+  background-color: #ffd166;
+  color: #2e2e2e;
+}
+
+.dona-ora {
+  background-color: #5f9b89;
+  color: #ffffff;
+}
+
+/* MEDIA QUERIES HERO */
+@media (max-width: 600px) {
+  .container-card {
+    flex-direction: column; /* le card sopra vanno una sotto l’altra */
+    align-items: center;
+  }
+  .card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .card-text h2 {
+    font-size: clamp(14px, 4vw, 26px);
+  }
+
+  .card-text h3 {
+    font-size: clamp(12px, 3.5vw, 218px);
+  }
+
+  .adotta,
+  .dona-ora {
+    font-size: clamp(10px, 3vw, 14px);
+    padding: clamp(6px, 2vw, 12px) clamp(12px, 4vw, 20px);
+  }
+}
+
+/* INFO CARDS - le tre sotto */
 .tre-card {
   display: flex;
-  justify-content: center;
   gap: 24px;
-  padding: 30px clamp(10px, 5vw, 150px);
+  padding: 30px clamp(20px, 5vw, 80px); /* stesso padding laterale del container wrapper */
   overflow-x: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
 
 .tre-card > div {
-  flex: 1 1 0;
-  max-width: 360px; /* non diventano troppo larghe */
-  min-width: 240px; /* non diventano troppo strette */
-  aspect-ratio: 5 / 4; /* larghe leggermente più dell'altezza */
+  flex: 0 0 300px;
   background: white;
   border-radius: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 16px clamp(20px, 5vw, 24px);
+  padding: 16px 20px;
   gap: 8px;
-  overflow: hidden;
-  word-wrap: break-word;
-  transition: all 0.25s ease;
   box-sizing: border-box;
+  min-height: auto;
 }
 
 /* Nascondere scrollbar (opzionale) */
 .tre-card::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
+  display: none;
 }
 
 .icona-affido,
@@ -322,12 +387,6 @@ body {
   color: #2e2e2e;
 }
 
-.affido-testo strong,
-.stallo-testo strong,
-.aiutaci-testo strong {
-  font-weight: 700;
-}
-
 .affido-bottone {
   background-color: #d97a7a;
 }
@@ -365,10 +424,7 @@ body {
 
 @media (max-width: 1000px) {
   .tre-card {
-    justify-content: flex-start; /* partono da sinistra */
-    overflow-x: auto; /* attiva scroll */
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
     gap: 16px;
   }
 }
