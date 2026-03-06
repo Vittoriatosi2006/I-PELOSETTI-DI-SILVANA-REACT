@@ -1,0 +1,423 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f6f3;
+  padding-top: 40px;
+}
+
+/* NAVBAR 1 */
+.prima-navbar {
+  background-color: #5f8f7a;
+  width: 100%;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.container-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.email-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.icona-email {
+  width: 20px;
+  height: 20px;
+}
+
+.email {
+  font-size: 13px;
+  color: white;
+  align-items: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap; /* NON andare a capo */
+}
+
+.social a {
+  color: #5f8f7a;
+  margin-left: 15px;
+  font-size: 14px;
+}
+.social img {
+  width: 22px;
+  height: 22px;
+  max-width: 100%;
+}
+
+/* seconda navbar */
+.seconda-navbar {
+  display: flex;
+  align-items: center;
+  background-color: #f7f6f3;
+  padding: 10px 30px;
+  flex-wrap: nowrap;
+  border-bottom: solid 1px rgb(223, 216, 216);
+  z-index: 999;
+}
+
+.icona-principale {
+  width: 35px;
+  height: 35px;
+  margin-right: 15px;
+}
+
+/* Nascondere scrollbar su tutti i browser */
+.nav-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 12px;
+  margin-left: auto;
+  justify-content: flex-start;
+  overflow-x: auto;
+  /* Safari / Chrome / Edge */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+/* Safari / Chrome / Edge */
+.nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-links select {
+  width: 130px;
+  max-width: 190px;
+  white-space: nowrap; /* impedisce di andare a capo */
+  overflow: hidden; /* nasconde il testo in eccesso */
+  text-overflow: ellipsis; /* aggiunge i ... */
+  appearance: none; /* rimuove stile di default */
+  cursor: pointer;
+}
+
+.nav-links button,
+.nav-links select {
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-family: Poppins;
+  color: #2e2e2e;
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.nav-links button:hover,
+.nav-links select:hover {
+  background-color: #2e2e2e;
+  color: #ffffff;
+}
+
+.donazioni {
+  background-color: #ffd166;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+/* Main */
+.container-card {
+  display: flex;
+  gap: clamp(20px, 4vw, 40px);
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding: 30px clamp(20px, 5vw, 80px);
+}
+
+.card {
+  position: relative;
+  flex: 1 1 45%;
+  max-width: 600px;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.card-text {
+  position: absolute;
+  top: clamp(10px, 2vw, 20px);
+  left: clamp(10px, 2vw, 20px);
+  right: clamp(10px, 2vw, 20px);
+  color: #2e2e2e;
+  max-width: 70%;
+}
+.card-text h2 {
+  font-size: clamp(13px, 2vw, 27px);
+  line-height: 1.2;
+  margin-bottom: clamp(6px, 1vw, 12px);
+}
+
+.card-text h3 {
+  font-size: clamp(10px, 1.5vw, 17px);
+  line-height: 1.4;
+}
+
+.adotta {
+  margin-top: clamp(8px, 1.5vw, 20px);
+  padding: clamp(4px, 1vw, 10px) clamp(10px, 2vw, 20px);
+  background-color: #ffd166;
+  color: #2e2e2e;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: clamp(10px, 1.2vw, 15px);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.dona-ora {
+  margin-top: clamp(8px, 1.5vw, 20px);
+  padding: clamp(4px, 1vw, 10px) clamp(10px, 2vw, 20px);
+  background-color: #5f9b89;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: clamp(10px, 1.2vw, 15px);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+@media (max-width: 850px) {
+  .seconda-navbar {
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    max-width: calc(100% - 120px);
+  }
+}
+
+@media (max-width: 600px) {
+  .container-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    flex: 1 1 100%;
+    max-width: 80%;
+  }
+  .card-text h3 {
+    padding-right: 50px;
+  }
+  .card-text h2 {
+    font-size: clamp(14px, 3vw, 22px);
+  }
+
+  .card-text h3 {
+    font-size: clamp(10px, 2.5vw, 16px);
+  }
+}
+
+/* ---------------------- */
+/* CONTENITORE CARDS CON SCROLL ORIZZONTALE */
+.tre-card {
+  display: flex;
+  gap: 24px; /* distanza tra le card */
+  padding: 30px clamp(20px, 5vw, 80px); /* stesso padding laterale delle card sopra */
+  overflow-x: auto; /* scroll laterale */
+  scroll-behavior: smooth; /* scorrimento fluido */
+  -webkit-overflow-scrolling: touch; /* mobile smooth */
+}
+
+/* Nascondere scrollbar (opzionale) */
+.tre-card::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+.tre-card {
+  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* CARD */
+.tre-card > div {
+  flex: 0 0 320px; /* larghezza fissa, non si ridimensiona */
+  max-width: 320px;
+  min-height: 160px; /* minima */
+  background: white;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16px clamp(20px, 5vw, 24px); /* padding interno con lato sinistro e destro coerente */
+  gap: 8px;
+  overflow: hidden;
+  word-wrap: break-word;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+/* ---------------------- */
+/* ICONE */
+.icona-affido,
+.icona-stallo,
+.icona-aiutaci {
+  width: 60px;
+  height: 60px;
+}
+
+/* ---------------------- */
+/* CONTENUTO CARD */
+.card-contenuto1,
+.card-contenuto2,
+.card-contenuto3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+/* ---------------------- */
+/* TITOLI CARD */
+.affido-titolo,
+.stallo-titolo,
+.aiutaci-titolo {
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #2e2e2e;
+}
+
+/* ---------------------- */
+/* TESTI CARD */
+.affido-testo,
+.stallo-testo,
+.aiutaci-testo {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  color: #2e2e2e;
+}
+
+.affido-testo strong,
+.stallo-testo strong,
+.aiutaci-testo strong {
+  font-weight: 700;
+}
+
+/* ---------------------- */
+/* BOTTONI CARD */
+.affido-bottone {
+  background-color: #d97a7a;
+}
+.stallo-bottone {
+  background-color: #f29ca3;
+}
+.aiutaci-bottone {
+  background-color: #5b8db8;
+}
+
+.affido-bottone,
+.stallo-bottone,
+.aiutaci-bottone {
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 6px 12px;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.affido-bottone:hover {
+  background-color: #c56c70;
+}
+.stallo-bottone:hover {
+  background-color: #e18291;
+}
+.aiutaci-bottone:hover {
+  background-color: #4e7aa3;
+}
+
+/* ---------------------- */
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 1000px) {
+  .tre-card {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 700px) {
+  .tre-card > div {
+    flex: 0 0 280px; /* larghezza leggermente più piccola */
+    max-width: 280px;
+    min-height: 160px;
+    padding: 16px clamp(16px, 4vw, 20px); /* padding laterale coerente in mobile */
+  }
+
+  .icona-affido,
+  .icona-stallo,
+  .icona-aiutaci {
+    width: 50px;
+    height: 50px;
+  }
+
+  .affido-titolo,
+  .stallo-titolo,
+  .aiutaci-titolo {
+    font-size: 14px;
+  }
+
+  .affido-testo,
+  .stallo-testo,
+  .aiutaci-testo {
+    font-size: 11px;
+  }
+
+  .affido-bottone,
+  .stallo-bottone,
+  .aiutaci-bottone {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .tre-card > div {
+    flex: 0 0 90%; /* quasi tutta la larghezza dello schermo */
+    max-width: 90%;
+    min-height: 160px;
+  }
+}
