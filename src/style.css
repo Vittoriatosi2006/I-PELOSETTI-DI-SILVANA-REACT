@@ -167,20 +167,20 @@ body {
 
 .card-text {
   position: absolute;
-  top: clamp(10px, 2vw, 20px);
-  left: clamp(10px, 2vw, 20px);
+  top: clamp(30px, 2vw, 40px);
+  left: clamp(30px, 2vw, 40px);
   right: clamp(10px, 2vw, 20px);
   color: #2e2e2e;
   max-width: 70%;
 }
 .card-text h2 {
-  font-size: clamp(13px, 2vw, 27px);
+  font-size: clamp(16px, 2vw, 30px);
   line-height: 1.2;
   margin-bottom: clamp(6px, 1vw, 12px);
 }
 
 .card-text h3 {
-  font-size: clamp(10px, 1.5vw, 17px);
+  font-size: clamp(7px, 1.5vw, 14px);
   line-height: 1.4;
 }
 
@@ -219,84 +219,17 @@ body {
     max-width: calc(100% - 120px);
   }
 }
+
 /* Containers wrapper */
 .cards-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 5vw, 80px); /* stesso padding laterale per tutti i container */
+  padding: 0 clamp(20px, 5vw, 80px);
 }
 
-/* HERO CARDS */
-.container-card {
-  display: flex;
-  gap: clamp(20px, 4vw, 40px);
-  margin-top: 40px;
-  justify-content: center;
-  flex-wrap: nowrap; /* non andare a capo */
-  overflow-x: auto; /* scroll quando serve */
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-.card {
-  position: relative;
-  flex: 0 0 45%; /* larghezza fissa proporzionale */
-  max-width: 600px;
-  border-radius: 30px;
-  overflow: hidden;
-}
-
-.card img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-}
-
-.card-text {
-  position: absolute;
-  top: clamp(10px, 2vw, 20px);
-  left: clamp(10px, 2vw, 20px);
-  right: clamp(10px, 2vw, 20px);
-  color: #2e2e2e;
-  max-width: 70%;
-}
-
-.card-text h2 {
-  font-size: clamp(13px, 2vw, 27px);
-  line-height: 1.2;
-  margin-bottom: clamp(6px, 1vw, 12px);
-}
-
-.card-text h3 {
-  font-size: clamp(10px, 1.5vw, 17px);
-  line-height: 1.4;
-}
-
-.adotta,
-.dona-ora {
-  margin-top: clamp(8px, 1.5vw, 20px);
-  padding: clamp(4px, 1vw, 10px) clamp(10px, 2vw, 20px);
-  border-radius: 999px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.adotta {
-  background-color: #ffd166;
-  color: #2e2e2e;
-}
-
-.dona-ora {
-  background-color: #5f9b89;
-  color: #ffffff;
-}
-
-/* MEDIA QUERIES HERO */
 @media (max-width: 600px) {
   .container-card {
-    flex-direction: column; /* le card sopra vanno una sotto l’altra */
+    flex-direction: column;
     align-items: center;
   }
   .card {
@@ -305,11 +238,11 @@ body {
   }
 
   .card-text h2 {
-    font-size: clamp(14px, 4vw, 26px);
+    font-size: clamp(20px, 4vw, 32px);
   }
 
   .card-text h3 {
-    font-size: clamp(12px, 3.5vw, 218px);
+    font-size: clamp(9px, 3vw, 215px);
   }
 
   .adotta,
